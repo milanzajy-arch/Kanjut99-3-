@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milan's | GoON'S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Latar belakang gambar - bisa diganti di sini */
+            background: url('https://i.postimg.cc/cJN7Xn49/IMG-20260604-214354-270.jpg') center/cover no-repeat fixed;
+            min-height: 100vh;
+        }
+        /* Lapisan gelap */
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            width: 100%;
+            padding-bottom: 40px;
+        }
+        /* ✅ Gaya tombol outline - ketebalan 4px */
+        .btn-outline {
+            background-color: transparent !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+        /* ✅ Kartu Shaders - ketebalan 4px */
+        .shader-card {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .shader-card:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <!-- Tombol Kembali -->
+        <div class="p-4">
+            <a href="https://milanzajy-arch.github.io/Kanjut99/" target="_blank" 
+               class="btn-outline inline-flex items-center gap-1 text-sm px-7 py-7">
+                <i class="fa fa-arrow-left mr-1"></i>
+            </a>
+        </div>
+
+        <!-- Foto Profil & Nama -->
+        <div class="flex flex-col items-center mt-4 mb-8">
+            <img src="https://i.postimg.cc/m2dhKS51/20260531-175456.jpg" 
+                 alt="Foto Profil" 
+                 class="w-32 h-32 rounded-full object-cover border-4 border-white/50">
+            <h2 class="text-2xl font-bold text-white mt-3">Milan's</h2>
+            <p class="text-gray-300">Shaders Editor</p>
+        </div>
+
+        <!-- Kolom Pencarian -->
+        <div class="px-6 mb-8">
+            <input type="text" id="cari" placeholder="nyari disini ygy" 
+                   class="btn-outline w-full px-5 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50">
+        </div>
+
+        <!-- Daftar Shaders - 2 Kolom -->
+        <div class="px-6">
+            <div id="daftar-shaders" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Item 1 -->
+                <div class="shader-card p-5 flex items-center gap-4"> 
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-white text-base">modpack v1 (low end)</h3>
+                        <p class="text-xs text-gray-400 mt-1">Versi 1.21 Fabric 0.17.1</p>
+                    </div>
+                    <a href="https://www.mediafire.com/file/lk77sfozo2bfobd/1.21+Fabric+0.17.1.mrpack/file" target="_blank" 
+                       class="btn-outline px-5 py-2 text-sm font-medium">
+                        <i class="fa fa-download mr-1"></i>
+                    </a>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="shader-card p-5 flex items-center gap-4"> 
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-white text-base">???</h3>
+                        <p class="text-xs text-gray-400 mt-1">Versi ???</p>
+                    </div>
+                    <a href="https://kntl ijo mas rian.com" target="_blank" 
+                       class="btn-outline px-5 py-2 text-sm font-medium">
+                        <i class="fa fa-download mr-1"></i>
+                    </a>
+                </div>    
+
+            </div>
+        </div>
+
+        <!-- Script Search -->
+        <script>
+            const inputCari = document.getElementById('cari');
+            const daftarShaders = document.getElementById('daftar-shaders').children;
+
+            inputCari.addEventListener('input', function() {
+                const kataKunci = this.value.toLowerCase();
+                for (let item of daftarShaders) {
+                    const judul = item.querySelector('h3').textContent.toLowerCase();
+                    item.style.display = judul.includes(kataKunci) ? 'flex' : 'none';
+                }
+            });
+        </script>
+
+    </div>
+</body>
+</html>
